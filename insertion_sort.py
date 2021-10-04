@@ -9,4 +9,3 @@ def insertion_sort(vetorRecebido, k):
 
         vetorRecebido[posicaoAtual] = valorAtual
     return vetorRecebido[k - 1]
-
