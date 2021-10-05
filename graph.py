@@ -8,7 +8,7 @@ def generateGraph(table, listOfN, max):
 
     plt.xlabel('Tamanho da entrada')
     plt.ylabel('Tempo')
-    plt.title("Algoritmos de ordenação")
+    plt.title("Min K")
 
     timesRselect = table['RSELECT'].tolist()
     timesINSERTION = table['INSERTION'].tolist()
