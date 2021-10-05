@@ -23,7 +23,7 @@ if __name__ == '__main__':
     inc = 10
     print("Escolha o valor maxímo de entrada: minimo (2000) maximo (20000)")
     max = int(input())
-    stp = 1000
+    stp = 10
     rpt = 1
 
     numLoops = int(max / stp)

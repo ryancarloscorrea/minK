@@ -3,8 +3,8 @@ from matplotlib import pyplot as plt
 
 def generateGraph(table, listOfN, max):
 
-    plt.ylim(0, 0.06)
-    plt.xlim(0, 200)
+    plt.ylim(0, 0.007)
+    plt.xlim(0, max)
 
     plt.xlabel('Tamanho da entrada')
     plt.ylabel('Tempo')
