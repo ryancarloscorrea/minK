@@ -12,13 +12,13 @@ import random # lib para gerar numeros aleatórios
 if __name__ == '__main__':
     print("Escolha o valor inicial de entrada: minimo (1)")
     inc = int(input())
-    print("Escolha o valor maxímo de entrada: minimo (2000) maximo (20000)")
+    print("Escolha o valor maxímo de entrada: minimo (100) maximo (2000)")
     max = int(input())
     print("Escolha o valor do passo")
     stp = int(input())
 
     numLoops = int(max / stp)  # quantidade de vezes em que vai do valor
-                               # N que vai no minmo ao maximo
+                               # minimo ao maximo
     numbersN = []
 
     columnsTable = ["k", "kth", "INSERTION", "RSELECT"]
