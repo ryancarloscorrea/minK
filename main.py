@@ -1,6 +1,7 @@
 from insertion_sort import insertion_sort
 from RamdomizedSelect import randomizedSelect
 from graph import generateGraph
+from minPriority import FilaMinPrioridade
 
 
 import timeit #lib para calcular tempo
@@ -21,7 +22,7 @@ if __name__ == '__main__':
                                # minimo ao maximo
     numbersN = []
 
-    columnsTable = ["k", "kth", "INSERTION", "RSELECT"]
+    columnsTable = ["k", "kth", "INSERTION", "MIN_QUEUE", "RSELECT"]
 
     # array (numbersN) dos N valores (equivalente a coluna N da tabela)
     for x in (range(numLoops)):
@@ -38,15 +39,35 @@ if __name__ == '__main__':
         arr = np.random.randint(0, 10000, n) # gerando array de numeros inteiros pseudo-aleatoriamente com intervalo de 0 a 10000.
                                              # o parametro (n) significa o tamanho do array
 
+        # valor K obtido aleatoriamente, indo de 1 até N
+        k = random.randint(1, n)
 
         ## gerando cópias do array original, para nao perder a consistencia, pois os scripts usados alteram o array.
         copyArrayInsert = arr.copy()
         copyArrayRSelect = arr.copy()
 
-        # valor K obtido aleatoriamente, indo de 1 até N
-        k = random.randint(1, n)
+        ### instaciando fila
+        queueMin = FilaMinPrioridade()
+        # copiando o array gerado aleatoriamente para fila.
+        for element in arr:
+            queueMin.insert(element)
+
+        # pegando os index reversos, por ex: 5, 4, 3, 2, 1 (para que facilite o o encontro do K menor valor)
+        rangeMin = range(queueMin.len())
+        reversed_range = reversed(rangeMin)
 
 
+
+        start = timeit.default_timer()
+        for i in reversed_range:
+            if i != k - 1:
+                queueMin.delete()
+
+            elif i == k -1:
+                elementKminQueue = queueMin.delete()
+                print(elementKminQueue, ' Ultimo elemento da excluido da fila de prioridades')
+        final = timeit.default_timer()
+        timeMinQueue = final - start
 
         # Calculando o tempo utilizado para cada script
 
@@ -71,6 +92,8 @@ if __name__ == '__main__':
         table.at[n, 'INSERTION'] = timeInsertion
 
         table.at[n, "RSELECT"] = timeRSelect
+
+        table.at[n, "MIN_QUEUE"] = timeMinQueue
 
 
 
