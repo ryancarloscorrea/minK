@@ -1,9 +1,16 @@
+'''
+Olá professor, não conseguimos finalizar o script do select, mas segua abaixo, para ver que tentamos.
+'''
+
+
+from insertion_sort import insertion_sort
+
 def parttition(A,p,r):
   vetoresComMediana = []
   tetoTamanhoVetor = len(A) / 5
-  mergeSort(A)
+  insertion_sort(A)
   #atribuindo o teto do tamanho do array dividido por 5, a uma variavel
-  if tetoTamanhoVetor > 5:      
+  if tetoTamanhoVetor > 5:
     if tetoTamanhoVetor - round(tetoTamanhoVetor)  > 0 :
         tetoTamanhoVetor = round(tetoTamanhoVetor) + 1
     else:
@@ -11,7 +18,7 @@ def parttition(A,p,r):
   j = 2
   for j in range (tetoTamanhoVetor):
     vetoresComMediana = A[j]
-    mergeSort(vetoresComMediana)
+    insertion_sort(vetoresComMediana)
 
   parttition(vetoresComMediana,p,r)
 
@@ -23,8 +30,8 @@ def select (A, p, r ,i) :
 
     if k == i:
         return A[q]
-    
-    if k > i  :  
+
+    if k > i  :
         select(A, p, q -1, i)
     else:
         select(A, q + 1, r, i-k)

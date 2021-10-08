@@ -1,3 +1,8 @@
+'''
+Abaixo, segue a implementação das estratégias 1, 2, 3.
+Tentamos fazer a 4, mas não conseguimos finalizar. Arquivo para o senhor ver a tentativa: select.py
+'''
+
 from insertion_sort import insertion_sort
 from RamdomizedSelect import randomizedSelect
 from graph import generateGraph
@@ -94,29 +99,6 @@ if __name__ == '__main__':
         table.at[n, "RSELECT"] = timeRSelect
 
         table.at[n, "MIN_QUEUE"] = timeMinQueue
-
-
-
-
-
-        ## DAVID ::
-        '''
-            
-            Para cada algoritmo, adicione essas linhas:
-                    copyArrayNOMEDOALGORTIMO = arr.copy()   
-                        
-                    start = timeit.default_timer()
-                    elementKNOMEDOALGORTIMO = NOMEDOALGORTIMO(PARAMS, K)
-                    final = timeit.default_timer()
-                    timeNOMEDOALGORIMTO  = final - start
-                    
-            Ao final, adicione essa linha      
-            
-                table.at[n, 'NOMEDOALGORIMTO'] = timeNOMEDOALGORIMTO
-                
-            APOS TUDO ISSO, DEVERÁ APARCER O TEMPO DO ALGORITMO NA TABELA
-        '''
-
 
     print(table)
     generateGraph(table, numbersN, max)
